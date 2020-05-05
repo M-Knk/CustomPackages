@@ -1,9 +1,0 @@
-{
-	"name": "com.m-knk.custom-package.test",
-	"displayName": "Test",
-	"version": "0.0.1",
-	"unity": "2019.3",
-	"description": "テスト",
-	"dependencies": {
-	}
-}

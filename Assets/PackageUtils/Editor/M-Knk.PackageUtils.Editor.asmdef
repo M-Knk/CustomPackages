@@ -1,7 +1,9 @@
 {
-    "name": "CustomPackage.Test.Runtime",
+    "name": "M-Knk.PackageUtils.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

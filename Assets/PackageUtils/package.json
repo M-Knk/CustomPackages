@@ -1,0 +1,9 @@
+﻿{
+	"name": "com.m-knk.package-utils",
+	"displayName": "PackageUtils",
+	"version": "1.0.0",
+	"unity": "2019.3",
+	"description": "カスタムパッケージに使うものを生成するためのツール(package.jsonと各AssemblyDefine)",
+	"dependencies": {
+	}
+}

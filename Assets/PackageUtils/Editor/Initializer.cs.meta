@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: a2dcb4772f596d44596d9596206222ee
+guid: cf71f5984718f694ca35fa7abd2b12dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - asmdefFormatEditor: {fileID: 4900000, guid: 0a8ccff8973fa5b459efa7f273d56ce1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
