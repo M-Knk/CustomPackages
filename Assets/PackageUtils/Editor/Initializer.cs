@@ -56,16 +56,6 @@ namespace CustomPackage.PackageUtils
 			}
 		}
 
-		const string packageJsonFormat = @"{
-	""name"": ""{NAME}"",
-	""displayName"": ""{DISPLAY_NAME}"",
-	""version"": ""{VERSION}"",
-	""unity"": ""{MIN_UNITY_VERSION}"",
-	""description"": ""{DESCRIPTION}"",
-	""dependencies"": {
-	}
-}
-";
 		const string formatFileDirectoryPath = ".\\JSONFormat\\";
 
 		public static void Initialize(PackageData packageData)
@@ -75,7 +65,8 @@ namespace CustomPackage.PackageUtils
 			const float taskNum = 4;
 
 			EditorUtility.DisplayProgressBar("Package Initializer", "Craete Package JSON", 0f / taskNum);
-			if (!CreatePackageJson(packageData))
+			string format = Resources.Load<TextAsset>("JSONFormat/PackageFormat").text;
+			if (!CreateJson(packageData.directoryPath + "\\package.json", format, packageData))
 			{
 				return;
 			}
@@ -93,24 +84,6 @@ namespace CustomPackage.PackageUtils
 			EditorUtility.DisplayDialog("Package Initializer", "Complete", "Ok");
 		}
 
-		static bool CreatePackageJson(PackageData packageData)
-		{
-			try
-			{
-				string text = ReplaceString(packageJsonFormat, packageData.ReplaceStrs);
-
-				string outputPath = packageData.directoryPath + "\\package.json";
-				File.WriteAllText(outputPath, text);
-				AssetDatabase.ImportAsset(outputPath);
-				return true;
-			}
-			catch (System.Exception e)
-			{
-				Debug.LogError(e);
-				return false;
-			}
-		}
-
 		static bool InitializeDirectory(PackageData packageData, string newDirectoryName)
 		{
 			string subDirectoryPath = TryCreateDirectory(packageData.directoryPath, newDirectoryName);
@@ -120,7 +93,7 @@ namespace CustomPackage.PackageUtils
 			}
 
 			string format = Resources.Load<TextAsset>("JSONFormat/" + newDirectoryName).text;
-			CreateAssemblyDefine(subDirectoryPath + @"\\" + packageData.asmdefPrefix + "." + newDirectoryName + ".asmdef", format, packageData.ReplaceStrs);
+			CreateJson(subDirectoryPath + @"\\" + packageData.asmdefPrefix + "." + newDirectoryName + ".asmdef", format, packageData);
 			return true;
 		}
 
@@ -143,11 +116,11 @@ namespace CustomPackage.PackageUtils
 			}
 		}
 
-		static bool CreateAssemblyDefine(string dstPath, string format, IEnumerable<ReplaceStr> replaceStrs)
+		static bool CreateJson(string dstPath, string format, PackageData packageData)
 		{
 			try
 			{
-				string text = ReplaceString(format, replaceStrs);
+				string text = ReplaceString(format, packageData.ReplaceStrs);
 				File.WriteAllText(dstPath, text);
 				AssetDatabase.ImportAsset(dstPath);
 				return true;

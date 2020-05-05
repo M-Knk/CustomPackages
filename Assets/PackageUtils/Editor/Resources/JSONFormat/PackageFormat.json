@@ -1,0 +1,9 @@
+﻿{
+	"name": "{NAME}",
+	"displayName": "{DISPLAY_NAME}",
+	"version": "{VERSION}",
+	"unity": "{MIN_UNITY_VERSION}",
+	"description": "{DESCRIPTION}",
+	"dependencies": {
+	}
+}
