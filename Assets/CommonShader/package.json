@@ -1,0 +1,9 @@
+{
+	"name": "com.m-knk.common-shader",
+	"displayName": "CommonShader",
+	"version": "1.0.0",
+	"unity": "2019.3",
+	"description": "汎用的なシェーダー",
+	"dependencies": {
+	}
+}
