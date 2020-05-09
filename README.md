@@ -1,0 +1,2 @@
+# CustomPackages
+自作のライブラリをPackageManagerで管理できるようにしたもの
