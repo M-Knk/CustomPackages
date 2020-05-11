@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Compilation;
 using System.IO;
+using CustomPackage.UtililtyExtensions;
 
 using ReplaceStr = System.Tuple<string, string>;
 
@@ -35,7 +36,7 @@ namespace CustomPackage.PackageUtils
 				isExistsPackageJson = File.Exists(directoryPath + "\\package.json");
 
 				displayName = Path.GetFileNameWithoutExtension(directoryPath);
-				name = ToLowerKebab("com." + ToLowerKebab(Application.companyName) + "." + ToLowerKebab(displayName));
+				name = "com." + Application.companyName.ToKebab() + "." + displayName.ToKebab();
 				description = "TODO: Write package's description.";
 
 				asmdefPrefix = Application.companyName + "." + displayName;
@@ -140,23 +141,6 @@ namespace CustomPackage.PackageUtils
 				sb.Replace(value.Item1, value.Item2);
 			}
 			return sb.ToString();
-		}
-
-		static string ToLowerKebab(string src)
-		{
-			string dst = src;
-			int i = 1;
-			while (i < dst.Length)
-			{
-				char c = dst[i];
-				if (dst[i - 1] != '-' && 'A' <= c && c <= 'Z')
-				{
-					dst = dst.Insert(i, "-");
-					i++;
-				}
-				i++;
-			}
-			return dst.ToLower();
 		}
 	}
 }

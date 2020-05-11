@@ -8,10 +8,14 @@
 		_StencilRef("Stencil Ref", Int) = 0
 		_StencilReadMask("Stencil ReadMask", Int) = 255
 		_StencilWriteMask("Stencil WriteMask", Int) = 255
-		[Enum(UnityEngine.Rendering.CompareFunction)]_StencilComp ("Stencil Comp", Float) = 8
-		[Enum(UnityEngine.Rendering.StencilOp)]_StencilPass("Stencil Pass", Float) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)]_StencilFail("Stencil Fail", Float) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)]_StencilZFail("Stencil ZFail", Float) = 0
+		//[Enum(UnityEngine.Rendering.CompareFunction)]
+		_StencilComp ("Stencil Comp", Float) = 8
+		//[Enum(UnityEngine.Rendering.StencilOp)]
+		_StencilPass("Stencil Pass", Float) = 0
+		//[Enum(UnityEngine.Rendering.StencilOp)]
+		_StencilFail("Stencil Fail", Float) = 0
+		//[Enum(UnityEngine.Rendering.StencilOp)]
+		_StencilZFail("Stencil ZFail", Float) = 0
 	}
 
 	SubShader
@@ -38,4 +42,6 @@
 			}
 		}
 	}
+
+	CustomEditor "CustomPackage.CommonShader.StencilShaderGUI"
 }
