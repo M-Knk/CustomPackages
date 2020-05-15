@@ -1,0 +1,12 @@
+{
+  "name": "com.m-knk.ui-element",
+  "displayName": "UIElement",
+  "version": "1.0.0",
+  "unity": "2019.3",
+  "description": "UIElement\u306e\u6c4e\u7528\u30e9\u30a4\u30d6\u30e9\u30ea",
+  "dependencies": {
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.modules.uielementsnative": "1.0.0",
+    "com.unity.ui.runtime": "0.0.4-preview"
+  }
+}
